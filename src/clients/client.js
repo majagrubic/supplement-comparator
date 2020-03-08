@@ -4,8 +4,15 @@ const BASE_URL = process.env.REACT_APP_SERVER_URL;
 
 const client = {
   fetchSupplements(type) {
+    // eslint-disable-next-line no-undef
+    const password = window.atob(process.env.REACT_APP_PASSWORD);
     return axios
-      .get(`${BASE_URL}/${type}`)
+      .get(`${BASE_URL}/${type}`, {
+        auth: {
+          username: process.env.REACT_APP_USERNAME,
+          password
+        }
+      })
       .then(response => {
         return {
           supplements: response.data
