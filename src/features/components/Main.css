@@ -1,0 +1,9 @@
+.flex-item {
+    min-width: 0;
+    flex: 1;
+}
+
+.page-body {
+    min-width: 0;
+    width: 100%;
+}
