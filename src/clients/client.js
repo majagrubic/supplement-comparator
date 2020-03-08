@@ -6,11 +6,12 @@ const client = {
   fetchSupplements(type) {
     // eslint-disable-next-line no-undef
     const password = window.atob(process.env.REACT_APP_PASSWORD);
+    const usernamePassword = `${process.env.REACT_APP_USERNAME}:${password}`;
+    const base64 = new Buffer(usernamePassword).toString('base64');
     return axios
       .get(`${BASE_URL}/${type}`, {
-        auth: {
-          username: process.env.REACT_APP_USERNAME,
-          password
+        headers: {
+          Authorization: `Basic ${base64}`
         }
       })
       .then(response => {

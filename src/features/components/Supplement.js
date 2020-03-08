@@ -36,10 +36,12 @@ export function Supplement() {
     };
   }, shallowEqual);
 
-  const { supplementsLoading, isError } = useSelector(state => {
+  const { supplementsLoading, isError, shouldStopFetching } = useSelector(
+    state => {
     return {
       supplementsLoading: state.supplements.fetching,
-      isError: state.supplements.error
+      isError: state.supplements.error,
+      shouldStopFetching: state.supplements.shouldStopFetching,
     };
   }, shallowEqual);
 
@@ -48,7 +50,7 @@ export function Supplement() {
   };
 
   useEffect(() => {
-    if (supplements.length === 0 && !isError) {
+    if (supplements.length === 0 && !supplementsLoading && !isError && !shouldStopFetching) {
       dispatch(fetchSupplements(selection));
     }
   }, [dispatch, supplements, selection, isError]);

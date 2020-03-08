@@ -10,11 +10,13 @@ export const supplements = createSlice({
       creatines: []
     },
     loading: false,
-    error: false
+    error: false,
+    shouldStopFetching: false
   },
   reducers: {
     fetchSupplementsStart: state => {
       state.fetching = true;
+      state.shouldStopFetching = false;
     },
     fetchSupplementsSuccess: (state, action) => {
       const { supplements, type } = action.payload;
@@ -31,6 +33,7 @@ export const supplements = createSlice({
     },
     errorShown: state => {
       state.error = false;
+      state.shouldStopFetching = true;
     }
   }
 });
