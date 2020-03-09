@@ -10,6 +10,7 @@ const client = {
     const base64 = new Buffer(usernamePassword).toString('base64');
     return axios
       .get(`${BASE_URL}/${type}`, {
+        crossDomain: true,
         headers: {
           Authorization: `Basic ${base64}`,
           Origin: 'https://suppsdb.com'
