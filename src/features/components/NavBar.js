@@ -3,13 +3,14 @@ import React, { useState } from 'react';
 import { EuiIcon, EuiSideNav } from '@elastic/eui';
 import { shallowEqual, useSelector, useDispatch } from 'react-redux';
 import { setSelection } from '../../reducers/selectionSlice';
+import { removeError } from '../../reducers/supplementsSlice';
 import logoSvg from './logo.svg';
 
 export function NavBar() {
   const [isSideNavOpenOnMobile, setIsSideNavOpenOnMobile] = useState(false);
   const { selection } = useSelector(state => {
     return {
-      selection: state.selection.selection
+      selection: state.selection.selection,
     };
   }, shallowEqual);
   const dispatch = useDispatch();
@@ -21,6 +22,7 @@ export function NavBar() {
   const selectItem = name => {
     if (!name) return;
     dispatch(setSelection(name));
+    dispatch(removeError());
   };
 
   const selectionNames = {

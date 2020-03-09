@@ -38,22 +38,36 @@ export function Supplement() {
 
   const { supplementsLoading, isError, shouldStopFetching } = useSelector(
     state => {
-    return {
-      supplementsLoading: state.supplements.fetching,
-      isError: state.supplements.error,
-      shouldStopFetching: state.supplements.shouldStopFetching,
-    };
-  }, shallowEqual);
+      return {
+        supplementsLoading: state.supplements.fetching,
+        isError: state.supplements.error,
+        shouldStopFetching: state.supplements.shouldStopFetching
+      };
+    },
+    shallowEqual
+  );
 
   const removeToast = () => {
     setToasts([]);
   };
 
   useEffect(() => {
-    if (supplements.length === 0 && !supplementsLoading && !isError && !shouldStopFetching) {
+    if (
+      supplements.length === 0 &&
+      !supplementsLoading &&
+      !isError &&
+      !shouldStopFetching
+    ) {
       dispatch(fetchSupplements(selection));
     }
-  }, [dispatch, supplements, selection, isError]);
+  }, [
+    dispatch,
+    supplements,
+    selection,
+    isError,
+    supplementsLoading,
+    shouldStopFetching
+  ]);
 
   const showErrorToast = () => {
     setToasts([errorToast]);

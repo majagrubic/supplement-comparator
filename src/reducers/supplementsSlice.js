@@ -34,6 +34,10 @@ export const supplements = createSlice({
     errorShown: state => {
       state.error = false;
       state.shouldStopFetching = true;
+    },
+    removeError: state => {
+      state.error = false;
+      state.shouldStopFetching = false;
     }
   }
 });
@@ -43,7 +47,8 @@ export const {
   fetchSupplementsSuccess,
   fetchSupplementsFailure,
   getSupplements,
-  errorShown
+  errorShown,
+  removeError
 } = supplements.actions;
 
 export default supplements.reducer;
