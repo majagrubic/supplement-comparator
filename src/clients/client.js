@@ -13,7 +13,9 @@ const client = {
         crossDomain: true,
         headers: {
           Authorization: `Basic ${base64}`,
-          Origin: 'https://suppsdb.com'
+          Origin: 'https://suppsdb.com',
+          Accept: 'application/x-www-form-urlencoded',
+          'Content-Type': 'application/x-www-form-urlencoded'
         }
       })
       .then(response => {
