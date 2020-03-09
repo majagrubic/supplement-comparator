@@ -11,7 +11,8 @@ const client = {
     return axios
       .get(`${BASE_URL}/${type}`, {
         headers: {
-          Authorization: `Basic ${base64}`
+          Authorization: `Basic ${base64}`,
+          Origin: 'https://suppsdb.com'
         }
       })
       .then(response => {
