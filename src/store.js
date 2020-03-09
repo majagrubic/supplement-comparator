@@ -28,6 +28,12 @@ const pathname =
   parsedPathname && validSelections.includes(parsedPathname)
     ? parsedPathname
     : 'wheys';
+const setUrl = () => {
+  // eslint-disable-next-line no-restricted-globals
+  history.pushState(null, null, pathname);
+};
+
+setUrl();
 
 const preloadedState = {
   selection: {

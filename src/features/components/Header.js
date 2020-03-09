@@ -7,7 +7,8 @@ import {
   EuiHeaderSectionItem,
   EuiHeaderLogo,
   EuiHeaderSection,
-  EuiHeaderLink
+  EuiHeaderLink,
+  EuiBetaBadge
 } from '@elastic/eui';
 
 import logoSvg from './logo.svg';
@@ -30,7 +31,11 @@ export function Header() {
       <EuiHeaderSection style={{ flexGrow: '1' }}>
         <EuiHeaderSectionItem border="right">
           <EuiHeaderLogo href="wheys" iconType={logoSvg}>
-            Supplements Comparator
+            Supplements Comparator &nbsp;
+            <EuiBetaBadge
+              label="Beta"
+              tooltipContent="This app is still in beta. Please help us by reporting any bugs."
+            />
           </EuiHeaderLogo>
         </EuiHeaderSectionItem>
       </EuiHeaderSection>
