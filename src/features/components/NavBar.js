@@ -5,6 +5,7 @@ import { shallowEqual, useSelector, useDispatch } from 'react-redux';
 import { setSelection } from '../../reducers/selectionSlice';
 import { removeError } from '../../reducers/supplementsSlice';
 import logoSvg from './logo.svg';
+import './NavBar.css';
 
 export function NavBar() {
   const [isSideNavOpenOnMobile, setIsSideNavOpenOnMobile] = useState(false);
@@ -77,11 +78,11 @@ export function NavBar() {
 
   return (
     <EuiSideNav
-      mobileTitle="Navigate within $APP_NAME"
+      id="sideNav"
+      mobileTitle="Click to select category"
       toggleOpenOnMobile={toggleOpenOnMobile}
       isOpenOnMobile={isSideNavOpenOnMobile}
       items={sideNav}
-      style={{ width: 192, marginTop: '60px' }}
     />
   );
 }

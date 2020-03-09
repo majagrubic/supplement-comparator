@@ -1,0 +1,11 @@
+#sideNav {
+    width: 192px;
+    margin-top: 60px;
+}
+
+@media only screen and (max-width: 600px) {
+    #sideNav {
+        width: 100%;
+        margin-top: 0;
+    }
+}

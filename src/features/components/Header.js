@@ -39,7 +39,7 @@ export function Header() {
           </EuiHeaderLogo>
         </EuiHeaderSectionItem>
       </EuiHeaderSection>
-      <EuiHeaderSection side="right" style={{ flexGrow: '0 !important' }}>
+      <EuiHeaderSection side="right" style={{ flexGrow: '0 !important' }} id='contactSection'>
         <EuiHeaderSectionItem border="left">
           <EuiHeaderLink iconType="user" onClick={setAboutSelection}>
             About
