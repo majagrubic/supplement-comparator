@@ -31,6 +31,7 @@ export default class extends Component {
         selectedOptions={selectedOptions}
         onChange={this.onChange}
         singleSelection={true}
+        fullWidth={true}
       />
     );
   }

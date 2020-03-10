@@ -40,12 +40,12 @@ export function Header() {
         </EuiHeaderSectionItem>
       </EuiHeaderSection>
       <EuiHeaderSection side="right" style={{ flexGrow: '0 !important' }} id='contactSection'>
-        <EuiHeaderSectionItem border="left">
+        <EuiHeaderSectionItem border="right">
           <EuiHeaderLink iconType="user" onClick={setAboutSelection}>
             About
           </EuiHeaderLink>
         </EuiHeaderSectionItem>
-        <EuiHeaderSectionItem border="left">
+        <EuiHeaderSectionItem border="none">
           <EuiHeaderLink iconType="pencil" onClick={setContactSelection}>
             Contact
           </EuiHeaderLink>
