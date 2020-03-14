@@ -1,9 +1,29 @@
 [[redirects]]
-  from = "/contact"
-  to = "/contact"
+  from = "/wheys"
+  to = "/index.html"
   status = 200
 
 [[redirects]]
-  from = "/*"
+  from = "/wheyIsolates"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/caseins"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/preworkouts"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/creatines"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/about"
   to = "/index.html"
   status = 200
