@@ -32,7 +32,12 @@
     <form name="contact" netlify netlify-honeypot="bot-field" hidden>
         <input type="text" name="name" />
         <input type="email" name="email" />
-        <input type="select" name="reason" />
+        <select id="reason" name="reason" form="contact">
+            <option value="bug"/>
+            <option value="supplement_info"/>
+            <option value="supplement_data"/>
+            <option value="other"/>
+        </select>
         <textarea name="message"></textarea>
     </form>
     <!--
