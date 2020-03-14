@@ -1,6 +1,6 @@
 import React from 'react';
-import { useSelector, shallowEqual } from 'react-redux';
 import './Main.css';
+import { Switch, Route } from 'react-router-dom';
 
 import {
   EuiPage,
@@ -15,23 +15,7 @@ import ContactUs from './ContactUs';
 import About from './About';
 import Supplement from './Supplement';
 
-const supplements = [
-  'wheys',
-  'creatines',
-  'preworkouts',
-  'wheyIsolates',
-  'caseins'
-];
-
 export function Main() {
-  const { selection } = useSelector(state => {
-    return {
-      selection: state.selection.selection
-    };
-  }, shallowEqual);
-
-  const isSupplementSelection = supplements.includes(selection);
-
   return (
     <EuiPage>
       <EuiPageSideBar>
@@ -43,9 +27,17 @@ export function Main() {
             <Header />
           </EuiPageHeaderSection>
         </EuiPageHeader>
-        {isSupplementSelection ? <Supplement /> : null}
-        {selection === 'about' ? <About /> : null}
-        {selection === 'contact' ? <ContactUs /> : null}
+        <Switch>
+          <Route exact path="/about">
+            <About />
+          </Route>
+          <Route exact path="/contact">
+            <ContactUs />
+          </Route>
+          <Route path="/">
+            <Supplement />
+          </Route>
+        </Switch>
       </EuiPageBody>
     </EuiPage>
   );

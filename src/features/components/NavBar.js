@@ -6,6 +6,7 @@ import { setSelection } from '../../reducers/selectionSlice';
 import { removeError } from '../../reducers/supplementsSlice';
 import logoSvg from './logo.svg';
 import './NavBar.css';
+import { useHistory } from 'react-router-dom';
 
 export function NavBar() {
   const [isSideNavOpenOnMobile, setIsSideNavOpenOnMobile] = useState(false);
@@ -15,6 +16,7 @@ export function NavBar() {
     };
   }, shallowEqual);
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const toggleOpenOnMobile = () => {
     setIsSideNavOpenOnMobile(!isSideNavOpenOnMobile);
@@ -43,7 +45,9 @@ export function NavBar() {
       name,
       isSelected: selection === selectionNames[name],
       onClick: () => {
-        selectItem(selectionNames[name]);
+        const selectionName = selectionNames[name];
+        selectItem(selectionName);
+        history.push(selectionName);
       }
     };
   };

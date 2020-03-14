@@ -8,8 +8,6 @@ export const selection = createSlice({
   reducers: {
     setSelection: (state, action) => {
       state.selection = action.payload;
-      // eslint-disable-next-line no-restricted-globals
-      history.pushState(null, null, action.payload);
     },
     getSelection: state => {
       return state.selection;

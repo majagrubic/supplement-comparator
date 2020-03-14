@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import './Header.css';
+import { useHistory } from 'react-router-dom';
 
 import {
   EuiHeader,
@@ -17,13 +18,11 @@ import { setSelection } from '../../reducers/selectionSlice';
 
 export function Header() {
   const dispatch = useDispatch();
+  const history = useHistory();
 
-  const setContactSelection = () => {
-    dispatch(setSelection('contact'));
-  };
-
-  const setAboutSelection = () => {
-    dispatch(setSelection('about'));
+  const onHeaderLinkClick = selection => {
+    dispatch(setSelection(selection));
+    history.push(`/${selection}`);
   };
 
   return (
@@ -39,14 +38,24 @@ export function Header() {
           </EuiHeaderLogo>
         </EuiHeaderSectionItem>
       </EuiHeaderSection>
-      <EuiHeaderSection side="right" style={{ flexGrow: '0 !important' }} id='contactSection'>
+      <EuiHeaderSection
+        side="right"
+        style={{ flexGrow: '0 !important' }}
+        id="contactSection"
+      >
         <EuiHeaderSectionItem border="right">
-          <EuiHeaderLink iconType="user" onClick={setAboutSelection}>
+          <EuiHeaderLink
+            iconType="user"
+            onClick={() => onHeaderLinkClick('about')}
+          >
             About
           </EuiHeaderLink>
         </EuiHeaderSectionItem>
         <EuiHeaderSectionItem border="none">
-          <EuiHeaderLink iconType="pencil" onClick={setContactSelection}>
+          <EuiHeaderLink
+            iconType="pencil"
+            onClick={() => onHeaderLinkClick('contact')}
+          >
             Contact
           </EuiHeaderLink>
         </EuiHeaderSectionItem>
